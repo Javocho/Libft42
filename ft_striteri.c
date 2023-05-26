@@ -1,18 +1,50 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 19:38:48 by fcosta-f          #+#    #+#             */
+/*   Updated: 2023/05/26 20:08:20 by fcosta-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*)) {
-    if (s == NULL || f == NULL)
-        return NULL; // Manejar casos de error si s o f son nulos.
-    size_t len = strlen(s);
-    char *result = malloc(sizeof(char) * (len + 1));
-    if (result == NULL) return NULL;
-    unsigned int i = 0;
-    while (i < len) {
-        f(i, s[i]);
-        result[i] = s[i];
-        ++i;
-    }
-    result[len] = '\0';
-    s = result;
-    free(result);
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	size_t			len;
+	char			*result;
+	unsigned int	i;
+
+	if (s != NULL && f != NULL)
+	{
+		len = strlen(s);
+		result = malloc(sizeof(char) * (len + 1));
+		if (result == NULL)
+			return (NULL);
+		i = 0;
+		while (i < len)
+		{
+			f(i, s[i]);
+			result[i] = s[i];
+			++i;
+		}
+		result[len] = '\0';
+		s = result;
+		free(result);
+	}
 }
+
+/*
+int main() {
+    char s[] = "Hello, World!";
+    
+    printf("Original string: %s\n", s);
+    
+    ft_striteri(s, printChar);
+    
+    return 0;
+}
+*/

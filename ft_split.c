@@ -1,28 +1,77 @@
-#include <stdlib.h>
-#include "ft_strlen.c"
-#include "ft_strncpy.c"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 17:56:00 by fcosta-f          #+#    #+#             */
+/*   Updated: 2023/05/26 18:31:50 by fcosta-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 //intentar asignar dinámicamente con strncpy :)
-char **ft_split(char const *s, char c) {
-    char **strs;
-    int word, nletter;
-    int i, j;
-    i = j = word = nletter = 0;
-    word = ft_strlen(s);
-    strs = malloc(sizeof(char *) * (word + 1));
-    if (strs == NULL) return NULL;
+#include "libft.h"
 
-    while (i < word) {
-        j = 0;
-        while (s[j] != c && s[j] != '\0') {
-            ++j;
-            ++nletter;
-        }
-        strs[i] = malloc(sizeof(char) * j);
-        if (strs[i] == NULL) return NULL;
-        ft_strncpy(strs[i], s[nletter - j], j);
-        ++i;
-    }
-    strs[i] == NULL;
-    return strs;
+static int	count_words(const char *s, char c)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			count++;
+		i++;
+	}
+
+	return (count);
+}
+
+static char	*extract_word(const char *s, char c, int *start)
+{
+	int		i;
+	int		word_len;
+	char	*word;
+
+	i = *start;
+	word_len = 0 ;
+	while (s[i] == c)
+		i++;
+	while (s[i + word_len] && s[i + word_len] != c)
+		word_len++;
+
+	word = ft_substr(s, i, word_len);
+	*start = i + word_len;
+	return (word);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		word_count;
+	char	**strs;
+	int		i;
+	int		start;
+
+	if (!s)
+		return (NULL);
+
+	word_count = count_words(s, c);
+	strs = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!strs)
+		return (NULL);
+
+	i = 0;
+	start = 0;
+	while (i < word_count)
+	{
+		strs[i] = extract_word(s, c, &start);
+		if (!strs[i])
+			return (NULL);
+		i++;
+	}
+	strs[i] = NULL;
+	return (strs);
 }

@@ -1,8 +1,21 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 17:55:01 by fcosta-f          #+#    #+#             */
+/*   Updated: 2023/05/26 17:55:26 by fcosta-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//hay que implementar ft_strlen??
+#include "libft.h"
 
-void ft_putstr_fd(char *s, int fd) {
-    int n = ft_strlen(s);
-    write(fd, &s, n);
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	n;
+
+	n = ft_strlen(s);
+	write(fd, &s, n);
 }

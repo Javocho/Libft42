@@ -1,5 +1,18 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 17:50:11 by fcosta-f          #+#    #+#             */
+/*   Updated: 2023/05/26 17:51:03 by fcosta-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putchar_fd(char c, int fd) {
-    write(fd, &c, 1);
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }

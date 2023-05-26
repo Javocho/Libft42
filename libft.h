@@ -1,7 +1,6 @@
-//debería haber todas las declaraciones
-
-
-//tipo t_list que es un struct s_list con un puntero *content vacío y un struct s_list *next que a su vez tiene un puntero vacío *content y un struct s_list *next
+/*tipo t_list que es un struct s_list con un puntero *content 
+vacío y un struct s_list *next que a su vez tiene un puntero 
+vacío *content y un struct s_list *next*/
 #ifndef LIBFT_H
 # define LIBFT_H //Esto evita problemas de inclusión múltiple.
 # include <unistd.h>
