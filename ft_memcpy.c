@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:35:32 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/26 13:04:26 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:20:53 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	*memcpy(void *dest, const void *src, size_t n)
 		s++;
 		n--;
 	}
+	return (d);
 }
 //cast implícito
 /*int main(int argc, char** argv) {

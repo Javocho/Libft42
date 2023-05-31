@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:32:04 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/26 12:33:04 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:42:05 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*memchr(const void *s, int c, size_t n)
 		if (*p == c)
 		{
 			s = p;
-			return (p);
+			return ((char *)(p));
 		}
 		p++;
 		n--;

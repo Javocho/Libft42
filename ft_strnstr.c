@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:26:39 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/28 13:32:24 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:26:47 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 		i++;
 	}
 	if (str2[j] == '\0')
-		return (str1 + i - j);
+		return ((char *)(str1 + i - j));
 	return (NULL);
 }
 

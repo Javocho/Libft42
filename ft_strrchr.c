@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:33:00 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/28 13:33:50 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:41:13 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *str, int c)
 	while (i >= 0)
 	{
 		if (str[i] == c)
-			return (str + i);
+			return ((char *)(str + i));
 		i--;
 	}
 	return (NULL);
