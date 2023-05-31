@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/31 23:58:23 by fcosta-f          #+#    #+#             */
+/*   Updated: 2023/06/01 00:03:11 by fcosta-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*tipo t_list que es un struct s_list con un puntero *content 
 vacío y un struct s_list *next que a su vez tiene un puntero 
 vacío *content y un struct s_list *next*/
@@ -46,7 +58,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
-void	ft_lstadd_front(t_list **alst, t_list *new);
+/*void	ft_lstadd_front(t_list **alst, t_list *new);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -56,5 +68,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+*/
 
 #endif

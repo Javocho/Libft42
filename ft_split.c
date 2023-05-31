@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:56:00 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/26 18:31:50 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:59:38 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static int	count_words(const char *s, char c)
 			count++;
 		i++;
 	}
-
 	return (count);
 }
 
@@ -42,7 +41,6 @@ static char	*extract_word(const char *s, char c, int *start)
 		i++;
 	while (s[i + word_len] && s[i + word_len] != c)
 		word_len++;
-
 	word = ft_substr(s, i, word_len);
 	*start = i + word_len;
 	return (word);
@@ -57,12 +55,10 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-
 	word_count = count_words(s, c);
 	strs = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!strs)
 		return (NULL);
-
 	i = 0;
 	start = 0;
 	while (i < word_count)

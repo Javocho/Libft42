@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:11:54 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/26 13:11:54 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:02:02 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
-
 	if (d < s)
 	{
 		while (n--)
@@ -30,7 +29,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n--)
 			d[n] = s[n];
 	}
-
 	return (dest);
 }
 
