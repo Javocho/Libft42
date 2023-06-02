@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:04:29 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/31 18:40:17 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/01 08:54:01 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strdup( const char *str)
 
 	len = ft_strlen(str) + 1;
 	newstr = malloc(len * sizeof(char));
+	if (!newstr)
+		return (NULL);
 	ft_strlcpy(newstr, str, len);
 	return (newstr);
 }
