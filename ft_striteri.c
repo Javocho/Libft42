@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 19:38:48 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/26 20:08:20 by fcosta-f         ###   ########.fr       */
+/*   Created: 2023/06/02 21:02:12 by fcosta-f          #+#    #+#             */
+/*   Updated: 2023/06/02 21:06:48 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,20 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	{
 		len = strlen(s);
 		result = malloc(sizeof(char) * (len + 1));
-		if (result == NULL)
-			return (NULL);
-		i = 0;
-		while (i < len)
+		if (result != NULL)
 		{
-			f(i, s[i]);
-			result[i] = s[i];
-			++i;
+			i = 0;
+			while (i < len)
+			{
+				f(i, s);
+				result[i] = s[i];
+				++s;
+				++i;
+			}
+			result[len] = '\0';
+			s = result;
+			free(result);
 		}
-		result[len] = '\0';
-		s = result;
-		free(result);
 	}
 }
 

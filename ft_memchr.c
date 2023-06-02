@@ -6,13 +6,13 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:32:04 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/31 18:42:05 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:59:49 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*p;
 

@@ -6,16 +6,16 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:35:32 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/06/01 00:08:01 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:59:24 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include "ft_atoi.c"
-//#include <stdio.h>
-//#include <stdlib.h>
+// #include "ft_atoi.c"
+// #include <stdio.h>
+// #include <stdlib.h>
 
-void	*memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char		*d ;
 	const char	*s;

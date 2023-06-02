@@ -6,11 +6,11 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 16:53:06 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/28 16:53:07 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:59:38 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupeer(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
