@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:32:04 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/06/02 21:37:35 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/03 09:40:03 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	p = s;
 	while (n > 0)
 	{
-		if (*p == c)
+		if (*p == (unsigned char)c)
 		{
 			s = p;
 			return ((char *)(p));
