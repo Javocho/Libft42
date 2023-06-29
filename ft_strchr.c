@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:34:16 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/31 18:24:43 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:28:02 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	if (str[i] == c)
-		return ((char *)&str[i]);
+	if (c >= 0 && c <= 255)
+	{
+		while (str[i] && str[i] != c)
+			i++;
+		if (str[i] == c)
+			return ((char *)(str + i));
+	}
 	return (NULL);
 }
 
-/*
+/*#include <stdio.h>
 int main(void) {
     const char *str = "Hello, World!";
     int c = 'W';
@@ -38,5 +41,4 @@ int main(void) {
     }
 
     return 0;
-}
-*/
+}*/
