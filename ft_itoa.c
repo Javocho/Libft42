@@ -6,13 +6,13 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:20:37 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/06/29 16:38:19 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/29 22:39:48 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_digits(int n)
+size_t	count_digits(int n)
 {
 	int	digits;
 
@@ -29,11 +29,23 @@ int	count_digits(int n)
 	return (digits);
 }
 
+static char	*ft_array(char *x, int number, size_t len)
+{
+	while (number > 0)
+	{
+		x[len--] = '0' + (number % 10);
+		number = number / 10;
+	}
+	return (x);
+}
+
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		digits;
+	char		*str;
+	size_t		digits;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	digits = count_digits(n);
 	str = malloc(sizeof(char) * (digits + 1));
 	if (str == NULL)
@@ -42,19 +54,12 @@ char	*ft_itoa(int n)
 	--digits;
 	if (n == 0)
 		str[0] = '0';
-	else if (n == -2147483648)
-		str = "-2147483648";
 	else if (n < 0)
 	{
 		str[0] = '-';
 		n *= -1;
 	}
-	while (n > 0)
-	{
-		str[digits] = '0' + n % 10;
-		n /= 10;
-		--digits;
-	}
+	str = ft_array(str, n, digits);
 	return (str);
 }
 
@@ -76,6 +81,6 @@ int main(int argc, char **argv)
 
 	free(str);
 
-	return 0;
+	return 0; //que guay hacerlo con strdup
 }
 */
