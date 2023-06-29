@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:35:32 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/06/02 21:33:46 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:31:49 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = dest;
 	s = src;
+	if (!dest && !src)
+		return (NULL);
 	while (n > 0)
 	{
 		*d = *s;
