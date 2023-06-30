@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:34:16 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/06/29 17:28:02 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:07:17 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
-	if (c >= 0 && c <= 255)
-	{
-		while (str[i] && str[i] != c)
-			i++;
-		if (str[i] == c)
-			return ((char *)(str + i));
-	}
+	while (str[i] && (unsigned char)str[i] != (unsigned char)c)
+		i++;
+	if ((unsigned char)str[i] == (unsigned char)c)
+		return ((char *)& str[i]);
 	return (NULL);
 }
 
-/*#include <stdio.h>
+/*#include <stdio.h> 
+he intnetado poner unsigned char para el juego de prueba
+ fuera de carácteres válidos
 int main(void) {
     const char *str = "Hello, World!";
     int c = 'W';
