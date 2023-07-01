@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:56:00 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/07/01 11:10:37 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/07/01 15:51:15 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,43 +36,44 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
-static char	*extract_word(const char *s, int start, int finish)
+static void	*maximumfree(char **str, int count)
 {
-	int		i;
-	char	*word;
+	int	i;
 
 	i = 0;
-	word = malloc((finish - start + 1) * sizeof(char));
-	while (start < finish)
-		word[i++] = s[start++];
-	word[i] = '\0';
-	return (word);
+	while (i < count)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	size_t	i;
-	size_t	j;
-	int		start;
+	char	**ptr;
+	size_t	count;
+	size_t	worlds;
+	char	*news;
 
-	strs = malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!s || !strs)
+	worlds = count_words(s, c);
+	count = 0;
+	ptr = malloc (sizeof(char *) * (count_words(s, c) + 1));
+	if (!ptr)
 		return (NULL);
-	i = 0;
-	j = 0;
-	start = -1;
-	while (i <= ft_strlen(s))
+	while (count < worlds)
 	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
-		{
-			strs[j++] = extract_word(s, start, i);
-			start = -1;
-		}
-		i++;
+		while (*s == c && *s)
+			s++;
+		news = (char *)s;
+		while (*s != c && *s != '\0')
+			s++;
+		ptr[count] = ft_substr(news, 0, s - news);
+		if (!ptr[count])
+			return (maximumfree(ptr, count));
+		count++;
 	}
-	strs[j] = NULL;
-	return (strs);
+	ptr[count] = NULL;
+	return (ptr);
 }
