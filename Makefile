@@ -6,7 +6,7 @@
 #    By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:57:37 by fcosta-f          #+#    #+#              #
-#    Updated: 2023/06/02 21:02:04 by fcosta-f         ###   ########.fr        #
+#    Updated: 2023/07/01 11:10:47 by fcosta-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,5 +43,5 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-//bonus:			$(OBJS) $(BONUS_OBJS)
+bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
