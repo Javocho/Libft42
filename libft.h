@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: fcosta-f <fcosta-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 23:58:23 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/07/01 11:18:32 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:31:04 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*tipo t_list que es un struct s_list con un puntero *content 
-vacío y un struct s_list *next que a su vez tiene un puntero 
-vacío *content y un struct s_list *next*/
 #ifndef LIBFT_H
 # define LIBFT_H //Esto evita problemas de inclusión múltiple.
 # include <unistd.h>
