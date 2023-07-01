@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:56:00 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/31 23:59:38 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/07/01 11:10:37 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,63 @@
 static int	count_words(const char *s, char c)
 {
 	int	count;
+	int	trigger;
 	int	i;
 
 	count = 0;
+	trigger = 0;
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		if (s[i] != c && trigger == 0)
+		{
 			count++;
+			trigger = 1;
+		}
+		else if (s[i] == c)
+			trigger = 0;
 		i++;
 	}
 	return (count);
 }
 
-static char	*extract_word(const char *s, char c, int *start)
+static char	*extract_word(const char *s, int start, int finish)
 {
 	int		i;
-	int		word_len;
 	char	*word;
 
-	i = *start;
-	word_len = 0 ;
-	while (s[i] == c)
-		i++;
-	while (s[i + word_len] && s[i + word_len] != c)
-		word_len++;
-	word = ft_substr(s, i, word_len);
-	*start = i + word_len;
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	while (start < finish)
+		word[i++] = s[start++];
+	word[i] = '\0';
 	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		word_count;
 	char	**strs;
-	int		i;
+	size_t	i;
+	size_t	j;
 	int		start;
 
-	if (!s)
-		return (NULL);
-	word_count = count_words(s, c);
-	strs = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (!strs)
+	strs = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!s || !strs)
 		return (NULL);
 	i = 0;
-	start = 0;
-	while (i < word_count)
+	j = 0;
+	start = -1;
+	while (i <= ft_strlen(s))
 	{
-		strs[i] = extract_word(s, c, &start);
-		if (!strs[i])
-			return (NULL);
+		if (s[i] != c && start < 0)
+			start = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
+		{
+			strs[j++] = extract_word(s, start, i);
+			start = -1;
+		}
 		i++;
 	}
-	strs[i] = NULL;
+	strs[j] = NULL;
 	return (strs);
 }
