@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 19:32:22 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/07/01 20:57:41 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/07/02 11:24:07 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*first;
+	t_list	*content;
 
-	if (!f || !del)
-		return (NULL);
 	first = NULL;
 	while (lst)
 	{
-		new = ft_lstnew(f(lst->content));
+		content = f(lst->content);
+		new = ft_lstnew(content);
 		if (!new)
 		{
+			free (content);
 			ft_lstclear(&first, del);
 			return (NULL);
 		}
