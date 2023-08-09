@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:07:46 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/24 13:10:38 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/08/10 00:24:32 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void	*ft_calloc(size_t n, size_t size)
 
 	ptr = malloc(n * size);
 	if (ptr != NULL)
-		memset(ptr, 0, n * size);
-	return (ptr);
+		return (ft_memset(ptr, 0, n * size));
 }
 /*
 int main() {

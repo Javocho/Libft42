@@ -6,13 +6,11 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:14:37 by fcosta-f          #+#    #+#             */
-/*   Updated: 2023/05/26 12:14:45 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2023/08/10 00:25:34 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	return (c >= 0 && c <= 127);
 }
